@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/gofiber/fiber/v2"
+    "github.com/gofiber/fiber/v2/middleware/cors"
 )
 
 type Bird struct {
@@ -18,6 +19,8 @@ type Bird struct {
 
 func main() {
 	app := fiber.New()
+
+    app.Use(cors.New())
 
 	buf, err := ioutil.ReadFile("birds.json")
 	if err != nil {
