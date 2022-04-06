@@ -20,6 +20,7 @@ WORKDIR /app
 
 # Copy built binary from build image
 COPY --from=build go/src/bird-api/app .
+COPY ./birds.json .
 
 # Expose port 3000
 EXPOSE 3000
